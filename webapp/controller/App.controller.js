@@ -23,6 +23,14 @@ sap.ui.define([
             var oLocaleData = new LocaleData(oLocale);
             var oCurrency = new Currency(oLocaleData.mData.currencyFormat);
             return oCurrency.formatValue([fUnitPrice * iStockLevel, sCurrencyCode], "string");
+        },
+
+        onItemSelected: function(oEvent) {
+            var oSelectedItem = oEvent.getSource();
+            var oContext = oSelectedItem.getBindingContext("products");
+            var sPath = oContext.getPath();
+            var oProductDetailsPanel = this.byId("productDetailsPanel");
+            oProductDetailsPanel.bindElement({ path: sPath, model: "products" });
         }
     });
 });
