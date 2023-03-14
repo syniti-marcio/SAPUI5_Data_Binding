@@ -1,10 +1,11 @@
 <mvc:View 
     xmlns="sap.m" 
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:form="sap.ui.layout.form">
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout">
     
     <Panel
-        headerText="{i18n>panelHeaderText}"
+        headerText="{i18n>mainPanelHeaderText}"
         class="sapUiResponsiveMargin"
         width="auto">
         
@@ -38,6 +39,24 @@
             
         </form:SimpleForm>
 
+    </Panel>
+
+    <Panel 
+        headerText="{i18n>addressPanelHeaderText}"
+        class="sapUiResponsiveMargin"
+        width="auto">
+        <content>
+            <l:VerticalLayout>
+                <Label 
+                    labelFor="address"
+                    text="{i18n>address}:" />
+                
+                <FormattedText 
+                    id="address"
+                    htmlText="{/address/street}&lt;br&gt;{/address/city}&lt;br&gt;{/address/zip}&lt;br&gt;{/address/country}"
+                    width="200px" />
+            </l:VerticalLayout>
+        </content>
     </Panel>
 
 </mvc:View>

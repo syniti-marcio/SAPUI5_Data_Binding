@@ -13,7 +13,12 @@ sap.ui.require([
             firstName: "Harry",
             lastName: "Hawk",
             enabled: true,
-            panelHeaderText: "Data Binding Basics"
+            address: {
+                street: "1 Any Lane",
+                city: "Walldorf",
+                zip: "69190",
+                country: "Germany"
+            }
         });
 
         var oResourceModel = new ResourceModel({
