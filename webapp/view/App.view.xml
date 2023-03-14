@@ -114,6 +114,7 @@
                     }
                 }"
                 numberUnit="{/currencyCode}"
+                numberState="{= ${products>UnitPrice} > ${/priceThreshold} ? 'Error' : 'Success'}"
                 press=".onItemSelected"
                 type="Active">
                 <attributes>
