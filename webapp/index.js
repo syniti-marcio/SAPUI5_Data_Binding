@@ -8,15 +8,15 @@ sap.ui.require([
     sap.ui.getCore().attachInit(function () {
         // Create a JSON Model from an object literal
         var oModel = new JSONModel({
-            greetingText: "Hi, My name is ... John"
+            greetingText: "Hi, My name is NOT ... John"
         });
 
         // Assign the model object to the SAPUI5 Core
         sap.ui.getCore().setModel(oModel);
         
-        // Create a text UI element that displays a hardcoded text string
+        // Display a text element whose text is derived from the model object
         new Text({
-            text: "Hi, My name is ... John"
+            text: "{/greetingText}"
         }).placeAt("content");
     });
 });
