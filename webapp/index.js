@@ -18,7 +18,7 @@ sap.ui.require([
 
         var oResourceModel = new ResourceModel({
             bundleName: "sap.ui.demo.db.i18n.i18n",
-            supportedLocales: ["", "de"],
+            supportedLocales: ["", "de", "pt"],
             fallbackLocale: ""
         });
 
