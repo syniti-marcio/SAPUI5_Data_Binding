@@ -71,14 +71,13 @@
             
             <l:VerticalLayout>
                 <Label 
-                    labelFor="salesAmount"
+                    labelFor="salesAmount" 
                     text="{i18n>salesAmount}:" />
-                
+
                 <Input 
+                    description="{/currencyCode}"
+                    enabled="{/enabled}"
                     id="salesAmount"
-                    description="{/currencyCode}" 
-                    enabled="{/enabled}" 
-                    width="300px"
                     value="{
                         parts: [
                             { path: '/salesAmount' },
@@ -88,7 +87,8 @@
                         formatOptions: {
                             showMeasure: false
                         }
-                    }" />
+                    }"
+                    width="300px" />
             </l:VerticalLayout>
         </content>
     </Panel>
