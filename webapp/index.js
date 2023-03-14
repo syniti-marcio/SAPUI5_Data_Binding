@@ -8,6 +8,11 @@ sap.ui.require([
 
     // Attach an anonymous function to the SAPUI5 init event
     sap.ui.getCore().attachInit(function () {
+        var oProductModel = new JSONModel();
+        oProductModel.loadData("./model/Products.json");
+        
+        sap.ui.getCore().setModel(oProductModel, "products");
+        
         // Create a JSON Model from an object literal
         var oModel = new JSONModel({
             firstName: "Harry",
@@ -22,18 +27,18 @@ sap.ui.require([
             salesAmount: 12345.6789,
             currencyCode: "EUR"
         });
+        
+        oModel.setDefaultBindingMode(BindingMode.OneWay);
 
+        // Assign the model object to the SAPUI5 Core
+        sap.ui.getCore().setModel(oModel);
+        
         var oResourceModel = new ResourceModel({
             bundleName: "sap.ui.demo.db.i18n.i18n",
             supportedLocales: ["", "de", "pt"],
             fallbackLocale: ""
         });
-
-        oModel.setDefaultBindingMode(BindingMode.OneWay);
-
-        // Assign the model object to the SAPUI5 Core
-        sap.ui.getCore().setModel(oModel);
-
+        
         // Assign the Resource model object to the SAPUI5 Core
         sap.ui.getCore().setModel(oResourceModel, "i18n");
         
@@ -44,7 +49,7 @@ sap.ui.require([
 
 		// Register the view with the message manager
 		sap.ui.getCore().getMessageManager().registerObject(oView, true);
-        
+
 		// Insert the view into the DOM
 		oView.placeAt("content");
     });
